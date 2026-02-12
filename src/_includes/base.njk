@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if title and title != "Home" %}{{ title }} — {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description or site.tagline }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
@@ -15,7 +12,7 @@
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">mi<span>t</span>ria</a>
+      <a href="/" class="nav__logo"><img src="/images/logo.svg" alt="Mitria"></a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -44,7 +41,7 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <a href="/" class="nav__logo">mi<span>t</span>ria</a>
+          <a href="/" class="nav__logo"><img src="/images/logo.svg" alt="Mitria"></a>
           <p>{{ site.tagline }}</p>
         </div>
         <div>

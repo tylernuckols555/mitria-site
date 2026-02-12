@@ -10,23 +10,33 @@
 }
 
 :root {
-  --color-bg: #FAFAF6;
-  --color-bg-alt: #F2EFE8;
-  --color-bg-warm: #EDE8DD;
+  /* Brand palette */
+  --color-fog: #F5F3EE;
+  --color-golden-hour: #D4A024;
+  --color-sage: #5E7E5A;
+  --color-clay: #C07A4A;
+  --color-pine: #1E3A20;
+  --color-rust: #9E5830;
+  --color-bark: #7A4820;
+
+  /* Semantic mappings */
+  --color-bg: var(--color-fog);
+  --color-bg-alt: #ECE9E2;
+  --color-bg-warm: #E5E0D6;
   --color-text: #2E2E2B;
-  --color-text-light: #6B6860;
-  --color-text-muted: #9A9589;
-  --color-primary: #6B7F5E;
-  --color-primary-light: #8FA67E;
-  --color-primary-dark: #4E5E44;
-  --color-accent: #C4A882;
-  --color-accent-light: #D9C9AE;
-  --color-warm: #A68B6B;
-  --color-border: #DDD8CE;
+  --color-text-light: #5A5750;
+  --color-text-muted: #8A8680;
+  --color-primary: var(--color-sage);
+  --color-primary-light: #7A9A74;
+  --color-primary-dark: var(--color-pine);
+  --color-accent: var(--color-golden-hour);
+  --color-accent-light: #E4BE5E;
+  --color-warm: var(--color-clay);
+  --color-border: #D8D4CB;
   --color-white: #FFFFFF;
 
-  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
-  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -73,9 +83,10 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
   color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 h1 { font-size: 3rem; letter-spacing: -0.02em; }
@@ -213,7 +224,7 @@ p:last-child {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(250, 250, 246, 0.95);
+  background: rgba(245, 243, 238, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
@@ -235,19 +246,21 @@ p:last-child {
 }
 
 .nav__logo {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--color-text);
-  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo img {
+  height: 44px;
+  width: auto;
 }
 
 .nav__logo:hover {
-  color: var(--color-text);
+  opacity: 0.8;
 }
 
 .nav__logo span {
-  color: var(--color-primary);
+  display: none;
 }
 
 .nav__links {
@@ -689,7 +702,7 @@ p:last-child {
    FOOTER
    ============================================ */
 .footer {
-  background: var(--color-text);
+  background: var(--color-pine);
   color: rgba(255, 255, 255, 0.7);
   padding: var(--space-xl) 0 var(--space-lg);
 }
@@ -702,9 +715,13 @@ p:last-child {
 }
 
 .footer__brand .nav__logo {
-  color: var(--color-white);
   margin-bottom: var(--space-sm);
   display: inline-block;
+}
+
+.footer__brand .nav__logo img {
+  height: 36px;
+  filter: brightness(0) invert(1);
 }
 
 .footer__brand p {
@@ -925,4 +942,28 @@ p:last-child {
 /* Spacing helper for page body below hero */
 .page-body {
   margin-top: 72px;
+}
+
+/* ============================================
+   DECORATIVE STAR DIVIDERS
+   ============================================ */
+.star-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) 0;
+}
+
+.star-divider img {
+  width: 28px;
+  height: auto;
+  opacity: 0.35;
+}
+
+.star-divider--small img {
+  width: 18px;
+}
+
+.star-divider--golden img {
+  filter: sepia(1) saturate(3) brightness(0.9) hue-rotate(-10deg);
 }
