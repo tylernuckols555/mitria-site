@@ -2,11 +2,27 @@
 layout: base.njk
 pageTitle: "Countries"
 permalink: "/countries/"
+showCta: true
 ---
-<section class="hero hero--short"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=1600&q=80" alt="Landscape" class="hero__image"><div class="hero__overlay"></div><div class="hero__content"><h1>Where We Work</h1></div></section>
-<section class="section"><div class="container"><div class="card-grid card-grid--3">
-{% for country in collections.countries %}
-<a href="{{ country.url }}" class="country-card"><img src="{{ country.data.heroImage }}" alt="{{ country.data.title }}"><div class="country-card__overlay"></div><h3>{{ country.data.title }}</h3></a>
-{% endfor %}
-</div></div></section>
-<section class="cta-banner"><h2>Let us build you a custom itinerary</h2><a href="/contact/" class="btn btn--outline">Get in Touch</a></section>
+<section class="hero hero--short">
+  <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=1600&q=80" alt="Landscape" class="hero__image">
+  <div class="hero__overlay"></div>
+  <div class="hero__content"><h1>Where We Work</h1></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="country-grid">
+      {% for country in collections.countries %}
+      <a href="{{ country.url }}" class="country-tile{% if loop.index == 1 or loop.index == 4 %} country-tile--wide{% endif %}">
+        <img src="{{ country.data.image }}" alt="{{ country.data.title }}">
+        <div class="country-tile__overlay"></div>
+        <div class="country-tile__content">
+          <h3>{{ country.data.title }}</h3>
+          <span class="country-tile__cta">Explore <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
